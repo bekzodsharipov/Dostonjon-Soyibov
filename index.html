@@ -6,11 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dostonjon Soyibov</title>
     <style>
-* {margin: 0;padding: 0;box-sizing: border-box;}body, html {overflow-x: hidden;}body {background-color: black;}.video-wrapper {max-width: 350px;width: 100%;aspect-ratio: 16/9;border-radius: 16px;overflow: hidden;background: #111;margin-bottom: 20px;position: relative;}.video-poster {width: 100%;height: 100%;border: 0;cursor: pointer;background: #111;position: relative;display: block;}.video-play {position: absolute;inset: 0;display: grid;place-items: center;font-size: 44px;opacity: .95;}.video-poster::before {content: "";position: absolute;inset: 0;background: url("./images/video-poster.avif") center/cover no-repeat;opacity: .95;}.hero {padding-top: 119px;padding-bottom: 37px;background-image: url(./images/bg.avif);}.hero__container {display: flex;flex-direction: column;align-items: center;justify-content: center;position: relative;color: white;}.container {max-width: 400px;padding: 0 10px;margin: 0 auto;}.hero__title {font-family: Inter, sans-serif;font-weight: 600;font-size: clamp(40px, 12.5vw, 42px);line-height: 120%;text-align: center;margin-bottom: 9px;}.hero__title span {color: #FFD48A;}.hero__subtitle {font-family: "Space Grotesk", sans-serif;font-weight: 400;font-size: 16px;line-height: 25.6px;text-align: center;margin-bottom: 16px;}.hero__meta {background: white;border-bottom: 4px solid #F4AD35;max-width: 350px;width: 100%;height: 202px;box-shadow: 0px 1px 25px 0px #FFF5E5 inset;backdrop-filter: blur(10px);margin-bottom: 23px;}.hero__shaddow {background: radial-gradient(37% 45% at 50% 50%, #855400 0%, rgba(133, 84, 0, 0) 100%);max-width: 390px;width: 100%;height: 604px;position: absolute;}.hero__actions {background: radial-gradient(14% 50% at 90.2% 100%, rgba(126, 101, 199, 0.25) 0%, rgba(255, 255, 255, 0.13) 100%);box-shadow: 0px 0px 20px 0px #FFFFFF33 inset;border-radius: 10000px;padding: 6px;max-width: 350px;width: 100%;}.btn {background: linear-gradient(272.86deg, #FFD999 0%, #FFB433 30.29%, #F5D49A 67.29%, #FFB433 100%);padding: 11px;font-family: sans-serif;font-weight: 700;font-size: 14px;line-height: 22px;text-align: center;border-radius: 10000px;text-transform: uppercase;max-width: 350px;width: 100%;cursor: pointer;border: none;}/* VIDEO FIX: player yuklanganda poster tepada qolib ketmasin */ .video-wrapper { position: relative; } .video-wrapper > * { position: relative; z-index: 1; } /* wistia-player absolute bo'lib ketmasin */ wistia-player { display: block; width: 100%; height: 100%; } /* yuklangandan keyin poster yashirish */ .video-wrapper.is-loaded .video-poster { display: none; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .video-wrapper {
+            max-width: 350px;
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #111;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .video-poster {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            cursor: pointer;
+            background: #111;
+            position: relative;
+            display: block;
+        }
+
+        .video-play {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font-size: 44px;
+            opacity: .95;
+            color: #F4AD35;
+        }
+
+        .hero {
+            padding-top: 119px;
+            padding-bottom: 37px;
+            background-image: url(./images/bg.avif);
+        }
+
+        .hero__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            font-size: clamp(40px, 12.5vw, 42px);
+            line-height: 120%;
+            text-align: center;
+            margin-bottom: 9px;
+        }
+
+        .hero__title span {
+            color: #FFD48A;
+        }
+
+        .hero__subtitle {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 25.6px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .hero__meta {
+            background: white;
+            border-bottom: 4px solid #F4AD35;
+            max-width: 350px;
+            width: 100%;
+            height: 202px;
+            box-shadow: 0px 1px 25px 0px #FFF5E5 inset;
+            backdrop-filter: blur(10px);
+            margin-bottom: 23px;
+        }
+
+        .hero__shaddow {
+            background: radial-gradient(37% 45% at 50% 50%, #855400 0%, rgba(133, 84, 0, 0) 100%);
+            max-width: 390px;
+            width: 100%;
+            height: 604px;
+            position: absolute;
+        }
+
+        .hero__actions {
+            background: radial-gradient(14% 50% at 90.2% 100%, rgba(126, 101, 199, 0.25) 0%, rgba(255, 255, 255, 0.13) 100%);
+            box-shadow: 0px 0px 20px 0px #FFFFFF33 inset;
+            border-radius: 10000px;
+            padding: 6px;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .btn {
+            background: linear-gradient(272.86deg, #FFD999 0%, #FFB433 30.29%, #F5D49A 67.29%, #FFB433 100%);
+            padding: 11px;
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            border-radius: 10000px;
+            text-transform: uppercase;
+            max-width: 350px;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* VIDEO FIX: player yuklanganda poster tepada qolib ketmasin */
+        .video-wrapper {
+            position: relative;
+        }
+
+        .video-wrapper>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* wistia-player absolute bo'lib ketmasin */
+        wistia-player {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* yuklangandan keyin poster yashirish */
+        .video-wrapper.is-loaded .video-poster {
+            display: none;
+        }
     </style>
-<link rel="preload" as="font" href="./font/SpaceGrotesk-Regular.subset.woff2" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fast.wistia.com" crossorigin>
-<link rel="preconnect" href="https://embed-ssl.wistia.com" crossorigin>
+    <link rel="preload" as="font" href="./font/SpaceGrotesk-Regular.subset.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://fast.wistia.com" crossorigin>
+    <link rel="preconnect" href="https://embed-ssl.wistia.com" crossorigin>
     <link rel="stylesheet" href="./css/main.css" media="print" onload="this.media='all'" />
     <noscript>
         <link rel="stylesheet" href="./css/main.css" />
@@ -33,7 +186,6 @@
                         yoki mavjud biznes daromadini <br />
                         2–5 barobar oshirish!
                     </p>
-
 
                     <div class="video-wrapper" id="videoWrap">
                         <button class="video-poster" id="loadVideo" type="button" aria-label="Videoni ko‘rish">
@@ -230,15 +382,15 @@
         <section class="why">
             <div class="why__container container">
                 <div class="why__content">
-                    <img class="why__img" src="./images/intensiv/vip.avif" width="310" height="235" loading="lazy" decoding="async"
-                        alt="images" />
+                    <img class="why__img" src="./images/intensiv/vip.avif" width="310" height="235" loading="lazy"
+                        decoding="async" alt="images" />
 
                     <h3 class="why__title">Nima uchun aynan bu intensiv?</h3>
                     <p class="why__lead">Bu motivatsiya emas!</p>
                     <p class="why__lead">Bu — real biznes tizimi</p>
 
-                    <img class="why__arrow" src="./images/intensiv/vector.avif" width="50" height="96" loading="lazy" decoding="async"
-                        alt="arrow" />
+                    <img class="why__arrow" src="./images/intensiv/vector.avif" width="50" height="96" loading="lazy"
+                        decoding="async" alt="arrow" />
                     <h4 class="why__note">3 kunda real natija!</h4>
                 </div>
 
