@@ -38,4 +38,28 @@ document.addEventListener("DOMContentLoaded", (function() {
         localStorage.setItem("formData", JSON.stringify(u)), window.location.href = "/thankYou.html", s.textContent = "DAVOM ETISH", s.disabled = !1, d.value = "", i.value = "", g()
     }))
 }));
+! function() {
+    const e = document.getElementById("loadVideo"),
+        t = document.getElementById("videoWrap");
+    if (!e || !t) return;
+    let n = !1;
 
+    function i() {
+        if (n) return;
+        n = !0;
+        const e = document.createElement("script");
+        e.src = "https://fast.wistia.com/player.js", e.async = !0, e.onload = () => {
+            t.innerHTML = '<wistia-player media-id="4kiatuarko" aspect="1.7777777777777777"></wistia-player>'
+        }, document.head.appendChild(e)
+    }
+    if (e.addEventListener("click", i, {
+            passive: !0
+        }), "IntersectionObserver" in window) {
+        const e = new IntersectionObserver((t => {
+            t.some((e => e.isIntersecting)) && (i(), e.disconnect())
+        }), {
+            rootMargin: "200px 0px"
+        });
+        e.observe(t)
+    }
+}();
