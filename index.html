@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dostonjon Soyibov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .hero {
+            padding-top: 119px;
+            padding-bottom: 37px;
+            background-image: url(./images/bg.avif);
+        }
+
+        .hero__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            font-size: clamp(40px, 12.5vw, 42px);
+            line-height: 120%;
+            text-align: center;
+            margin-bottom: 9px;
+        }
+
+        .hero__title span {
+            color: #FFD48A;
+        }
+
+        .hero__subtitle {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 25.6px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .hero__meta {
+            background: white;
+            border-bottom: 4px solid #F4AD35;
+            max-width: 350px;
+            width: 100%;
+            height: 202px;
+            box-shadow: 0px 1px 25px 0px #FFF5E5 inset;
+            backdrop-filter: blur(10px);
+            margin-bottom: 23px;
+        }
+
+        .hero__shaddow {
+            background: radial-gradient(37% 45% at 50% 50%, #855400 0%, rgba(133, 84, 0, 0) 100%);
+            max-width: 390px;
+            width: 100%;
+            height: 604px;
+            position: absolute;
+        }
+
+        .hero__actions {
+            background: radial-gradient(14% 50% at 90.2% 100%, rgba(126, 101, 199, 0.25) 0%, rgba(255, 255, 255, 0.13) 100%);
+            box-shadow: 0px 0px 20px 0px #FFFFFF33 inset;
+            border-radius: 10000px;
+            padding: 6px;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .btn {
+            background: linear-gradient(272.86deg, #FFD999 0%, #FFB433 30.29%, #F5D49A 67.29%, #FFB433 100%);
+            padding: 11px;
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            border-radius: 10000px;
+            text-transform: uppercase;
+            max-width: 350px;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+
+
+        .compare {
+            padding-bottom: 35px;
+            background-image: url(./images/bg.avif);
+        }
+
+        .compare__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+         
+        }
+
+        .compare__title {
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 27px;
+            line-height: 36px;
+            text-align: center;
+            background: linear-gradient(90deg,
+                    #F78F09 0%,
+                    #FFC766 25.12%,
+                    #F78F09 75.37%,
+                    #FFC766 100%);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .compare__content {
+            border-radius: 30px;
+            padding: 20px 20px 40px;
+            border: 1px solid #F4AD35;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .compare__card {
+            backdrop-filter: blur(20px);
+            background: var(--color-black-15, #00000026);
+            border-radius: 16px;
+            max-width: 310px;
+            width: 100%;
+            border: 1px solid #F78F09;
+        }
+
+
+        .compare-card__media {
+            border-radius: 16px 16px 0 0;
+            background-color: #A6A6A6;
+            max-width: 310px;
+            width: 100%;
+            height: 180px;
+        }
+
+        .compare-card__list {
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .compare-card__item {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 500;
+            font-size: clamp(14.5px, 4.5vw, 16px);
+            line-height: 25.6px;
+        }
+
+        .compare__subtitle {
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: clamp(23px, 7vw, 26.4px);
+            line-height: 36px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding-top: 30px;
+        }
+
+        .compare__shaddow {
+            background: linear-gradient(90deg, #855400 0%, #FFB32F 50%, #FFD48A 100%);
+            filter: blur(119px);
+            max-width: 950px;
+            width: 100%;
+            border-radius: 625px;
+            height: 300px;
+            position: absolute;
+            top: 250px;
+            left: 100px;
+            transform: rotate(32deg);
+        }
+
+
+        .audience {
+            padding-bottom: 57px;
+        }
+
+        .audience__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audience__title {
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            font-size: clamp(41px, 12.5vw, 42px);
+            line-height: 36px;
+            text-align: center;
+            color: #FAFAFA;
+            margin-bottom: 31px;
+        }
+
+        .audience__group {}
+
+        .audience-group__title {
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            font-style: Italic;
+            font-size: 28px;
+            line-height: 35.2px;
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .audience-group__cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .audience-card {
+            background: var(--color-orange-5, #170F01);
+            box-shadow: 0px 10px 10px -3.75px #0000000F inset;
+            box-shadow: 0px 2.29px 2.29px -2.5px #00000029 inset;
+            box-shadow: 0px 0.6px 0.6px -1.25px #0000002E inset;
+            box-shadow: 0px 10px 10px -3.75px #0000000F;
+            box-shadow: 0px 2.29px 2.29px -2.5px #00000029;
+            box-shadow: 0px 0.6px 0.6px -1.25px #0000002E;
+            box-shadow: 0px 0px 12px 0px #FAFAFA30 inset;
+            border-radius: 25px;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .audience-card__img {
+            max-width: 350px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .audience-card__title {
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: clamp(18px, 5.5vw, 20.1px);
+            line-height: 35.2px;
+            text-align: center;
+            color: white;
+            padding: 23px 0;
+        }
+
+        .program {
+            padding-bottom: 22px;
+        }
+
+        .program__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program__box {
+            background-color: white;
+            border-radius: 20px;
+            padding: 31px 15px 0;
+            max-width: 350px;
+            width: 100%;
+            margin-bottom: 22px;
+        }
+
+        .program__header {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .program__title {
+            font-family: Inter, sans-serif;
+            font-weight: 600;
+            font-size: clamp(32px, 10vw, 38px);
+            line-height: 36px;
+            text-align: center;
+        }
+
+        .program__arrow {
+            position: absolute;
+            right: 0;
+            top: 30px;
+        }
+
+        .program__grid {}
+
+        .program-card {}
+
+        .program-card__img {
+            border-radius: 16px;
+            margin-bottom: 10px;
+            max-width: 318px;
+            width: 100%;
+        }
+
+        .program-card__title {
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 21.1px;
+            line-height: 30.8px;
+            margin-bottom: 13px;
+            text-align: center;
+        }
+
+        .program-card__rows {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 32px;
+        }
+
+        .program-row__title {
+            font-family: Inter, sans-serif;
+            font-weight: 700;
+            font-style: Italic;
+            font-size: 26px;
+            line-height: 30.8px;
+            margin-bottom: 1px;
+        }
+
+        .program-row__text {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        .program-card__list {
+            margin-bottom: 39px;
+        }
+
+        .program-card__item {
+            font-family: sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+
+        .why {
+            padding-top: 46px;
+            padding-bottom: 60px;
+        }
+
+        .why__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .why__content {
+            background: linear-gradient(180deg, #000000 42%, #855400 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            max-width: 360px;
+            width: 100%;
+            border: 1px solid #855400;
+            padding: 20px 10px 26px;
+            margin-bottom: 25px;
+        }
+
+        .why__img {
+            max-width: 310px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .why__title {
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: clamp(18px, 5.7vw, 22px);
+            line-height: 35.2px;
+            color: #FAFAFA;
+            margin-bottom: 16px;
+        }
+
+        .why__lead {
+            font-family: sans-serif;
+            font-weight: 400;
+            font-size: clamp(16px, 5vw, 18px);
+            line-height: 25.6px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .why__arrow {
+            margin-bottom: 12px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
+
+        .why__note {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 400;
+            font-size: clamp(20px, 5.9vw, 22px);
+            line-height: 25.6px;
+            color: white;
+        }
+
+        .why__footnote {
+            font-family: Inter, sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 22.4px;
+            color: white;
+            padding-top: 2.8px;
+        }
+
+        @media (max-width:340px) {
+            .compare__content {
+                padding: 15px 15px 30px;
+            }
+
+            .compare-card__list {
+                padding: 16px;
+            }
+
+            .audience-card__img {
+                height: 100vw;
+            }
+
+            .program__arrow {
+                right: -10px;
+            }
+
+            .program__box {
+                padding: 30px 12px 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/main.css" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="./css/main.css" />
+    </noscript>
+</head>
+
+<body>
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__container container">
+                <div class="hero__shaddow"></div>
+                <div class="" style="position: relative; z-index: 20;">
+                    <h1 class="hero__title">
+                        Bepul <span class="hero__title-accent">3 kunlik <br />Biznes intensiv</span>
+                    </h1>
+
+                    <p class="hero__subtitle">
+                        Noldan foydali biznes boshlash <br />
+                        yoki mavjud biznes daromadini <br />
+                        2–5 barobar oshirish!
+                    </p>
+
+                    <div class="hero__meta"></div>
+
+                    <div class="hero__actions">
+                        <button class="btn registerBtn hero__btn" type="button">
+                            Ishtirokni band qilish
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="compare">
+            <div class="compare__container container">
+                <h2 class="compare__title">
+                    Ko’pchilik biznesida <br />
+                    pul topa olmaydi
+                </h2>
+
+                <div class="compare__content">
+                    <div class="compare__shaddow"></div>
+
+                    <!-- PROBLEM CARD -->
+                    <div class="compare__card">
+                        <div class="compare-card__media">
+                            <!-- <img class="compare-card__img" src="./images/" loading="lazy" decoding="async" alt="images" /> -->
+                        </div>
+
+                        <div class="compare-card__list">
+                            <p class="compare-card__item">❌ Aniq daromad modeli yo‘q</p>
+                            <p class="compare-card__item">❌ Mijoz oqimi yo‘q</p>
+                            <p class="compare-card__item">❌ Qayerdan boshlashni bilmaydi</p>
+                            <p class="compare-card__item">❌ Biznes to‘xtab qolgan</p>
+                        </div>
+                    </div>
+
+                    <h3 class="compare__subtitle">
+                        2 kunda aniq <br />
+                        biznes tizim quramiz
+                    </h3>
+
+                    <!-- SOLUTION CARD -->
+                    <div class="compare__card compare-card compare-card--positive">
+                        <div class="compare-card__media">
+
+                            <!-- <img class="compare-card__img" src="./images/" loading="lazy" decoding="async" alt="images" /> -->
+                        </div>
+
+                        <div class="compare-card__list">
+                            <p class="compare-card__item">✅ Biznes modeli</p>
+                            <p class="compare-card__item">✅ Mijoz jalb qilish tizimi</p>
+                            <p class="compare-card__item">✅ 90 kunlik o‘sish rejasi</p>
+                            <p class="compare-card__item">✅ Moliyaviy strategiya</p>
+                            <p class="compare-card__item">✅ Qadam-baqadam instrumentlar</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- AUDIENCE -->
+        <section class="landing__audience audience">
+            <div class="audience__container container">
+                <h2 class="audience__title">Kimlar uchun?</h2>
+
+                <!-- GROUP 1 -->
+                <div class="audience__group" style="margin-bottom: 35px;">
+                    <h3 class="audience-group__title">Biznesi yo’q:</h3>
+
+                    <div class="audience-group__cards">
+                        <article class="audience-card">
+                            <img class="audience-card__img" src="./images/user/1.avif" loading="lazy" decoding="async"
+                                width="350" height="370" alt="images" />
+                            <h4 class="audience-card__title">Hali biznesi yo‘q</h4>
+                        </article>
+
+                        <article class="audience-card">
+                            <img class="audience-card__img" src="./images/user/2.avif" loading="lazy" decoding="async"
+                                width="350" height="370" alt="images" />
+                            <h4 class="audience-card__title">Qayerdan boshlashni bilmaydi</h4>
+                        </article>
+
+                        <article class="audience-card">
+                            <img class="audience-card__img" src="./images/user/3.avif" loading="lazy" decoding="async"
+                                width="350" height="370" alt="images" />
+                            <h4 class="audience-card__title">Birinchi daromadni xohlaydi</h4>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- GROUP 2 -->
+                <div class="audience__group ">
+                    <h3 class="audience-group__title">Biznesi bor:</h3>
+
+                    <div class="audience-group__cards">
+                        <article class="audience-card">
+                            <img class="audience-card__img" src="./images/user/4.avif" loading="lazy" decoding="async"
+                                width="350" height="370" alt="images" />
+                            <h4 class="audience-card__title">Biznesi bor lekin o‘sish yo‘q</h4>
+                        </article>
+
+                        <article class="audience-card">
+                            <img class="audience-card__img" src="./images/user/5.avif" loading="lazy" decoding="async"
+                                width="350" height="370" alt="images" />
+                            <h4 class="audience-card__title">Masshtablashni xohlaydi</h4>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROGRAM -->
+        <section class="program">
+            <div class="program__container container">
+                <div class="program__box">
+                    <div class="program__header">
+                        <h3 class="program__title">3 kunlik dastur</h3>
+                        <img class="program__arrow" src="./images/arrow.png" loading="lazy" decoding="async" width="48"
+                            height="48" alt="arrow" />
+                    </div>
+
+                    <div class="program__grid">
+
+                        <!-- DAY PLAN -->
+                        <article class="program-card program-card--days">
+                            <img class="program-card__img" src="./images/program/2.avif" width="318" height="200"
+                                loading="lazy" decoding="async" alt="images" />
+                            <h4 class="program-card__title">3 kunlik dastur</h4>
+
+                            <div class="program-card__rows">
+                                <div class="program-row">
+                                    <h4 class="program-row__title">1-kun</h4>
+                                    <p class="program-row__text">Strategiya va yo’nalish</p>
+                                </div>
+
+                                <div class="program-row">
+                                    <h4 class="program-row__title">2-kun</h4>
+                                    <p class="program-row__text">Pul va sotuv tizimi</p>
+                                </div>
+
+                                <div class="program-row">
+                                    <h4 class="program-row__title">3-kun</h4>
+                                    <p class="program-row__text">O‘sish va biznes mashina</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FORMAT -->
+                        <article class="program-card program-card--format">
+                            <img class="program-card__img" src="./images/program/2.avif" width="318" height="200"
+                                loading="lazy" decoding="async" alt="images" />
+                            <h4 class="program-card__title">Format</h4>
+
+                            <ul class="program-card__list" style="margin-left: 30px;">
+                                <li class="program-card__item">3 kun</li>
+                                <li class="program-card__item">Kuniga 2–3 soat</li>
+                                <li class="program-card__item">Amaliy mashg‘ulotlar</li>
+                                <li class="program-card__item">Tayyor shablonlar</li>
+                            </ul>
+                        </article>
+
+                        <!-- GIFTS -->
+                        <article class="program-card program-card--gifts">
+                            <img class="program-card__img" src="./images/program/3.avif" width="318" height="200"
+                                loading="lazy" decoding="async" alt="images" />
+                            <h4 class="program-card__title">Sovg’alar</h4>
+
+                            <div class="program-card__list" style="display: flex; flex-direction: column; gap: 15px;">
+                                <p class="program-card__item">🎁 Check-listlar</p>
+                                <p class="program-card__item">🎁 Biznes shablonlari</p>
+                                <p class="program-card__item">🎁 Real keyslar</p>
+                                <p class="program-card__item">🎁 Shaxsiy o‘sish rejasi</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero__actions">
+                    <button class="btn registerBtn hero__btn" type="button">
+                        Intensivga qatnashish
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY -->
+        <section class="why">
+            <div class="why__container container">
+                <div class="why__content">
+                    <img class="why__img" src="./images/intensiv/vip.avif" loading="lazy" decoding="async"
+                        alt="images" />
+
+                    <h3 class="why__title">Nima uchun aynan bu intensiv?</h3>
+                    <p class="why__lead">Bu motivatsiya emas!</p>
+                    <p class="why__lead">Bu — real biznes tizimi</p>
+
+                    <img class="why__arrow" src="./images/intensiv/vector.avif" loading="lazy" decoding="async"
+                        alt="arrow" />
+                    <h4 class="why__note">3 kunda real natija!</h4>
+                </div>
+
+                <div class="hero__actions">
+                    <button class="btn registerBtn hero__btn" type="button">
+                        intensivga qatnashish
+                    </button>
+                </div>
+
+                <p class="why__footnote">Ishtirok BEPUL | Joylar soni cheklangan</p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Modal -->
+    <div id="registrationModal" class="homeModal" style="display: none">
+        <div class="homeModalOverlay"></div>
+        <div class="homeFormContainer">
+            <button class="closeButton" id="closeModalBtn" aria-label="Modalni yopish" title="Yopish">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 12 12" fill="none">
+                    <path d="M1 11L11 1M1 1.00001L11 11" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="homeFormTop">
+                <h1 class="homeFormTopTitle">
+                    Bepul qatnashish uchun ma'lumotlaringizni kiriting!
+                </h1>
+            </div>
+            <form id="registrationForm" name="contact-form">
+                <!-- ISM -->
+                <div class="HomeFormRow">
+                    <label class="HomeFormRowLabel" for="name">Ismingiz:</label>
+                    <input class="HomeFormRowInput" type="text" id="name" name="name" placeholder="Ismingizni kiriting"
+                        autocomplete="name" />
+                    <p class="homeFormErrorText" id="nameError" style="display: none">
+                        ❌ Ismingizni kiriting!
+                    </p>
+                </div>
+
+                <!-- TELEFON -->
+                <div class="HomeFormRow">
+                    <label class="HomeFormRowLabel" for="phone">Telefon raqamingiz:</label>
+
+                    <div class="phone-input-container">
+                        <!-- LEFT: country -->
+                        <button type="button" class="selected-country" id="selectedCountry">
+                            <span class="selected-flag" id="selectedCountryFlag">🇺🇿</span>
+
+                            <svg id="dropdownIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                            <span class="selected-code" id="selectedCountryCodeText">+998</span>
+                        </button>
+
+                        <!-- dropdown -->
+                        <div class="country-dropdown" id="countryDropdown" style="display:none"></div>
+
+                        <!-- RIGHT: phone input (number span inside) -->
+                        <div class="phone-field">
+                            <input class="HomeFormRowInput phone-input" type="tel" id="phone" name="phone"
+                                inputmode="numeric" placeholder="88 888 88 88" autocomplete="tel"
+                                style="border: none; background-color: transparent;padding-left: 5px;" />
+                        </div>
+                    </div>
+
+                    <p class="homeFormErrorText" id="phoneError" style="display:none">
+                        ❌ Telefon raqam mos emas!
+                    </p>
+                </div>
+
+                <button type="submit" class="HomeFormBtn" id="submitBtn">
+                    DAVOM ETISH
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <script defer src="./js/phoneFormatter.js"></script>
+    <script defer src="./js/app.js"></script>
+</body>
+
+</html>
